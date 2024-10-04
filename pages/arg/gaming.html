@@ -77,7 +77,7 @@
   </header>
 
   <!-- Contenu du tableau de bord -->
-  <div class="grid-container">
+  <div class="hidden grid-container mb-8">
 
     <!-- Carte : Statut des Champions/Créatures -->
     <div class="carte" x-data="{ health: 85 }">
@@ -104,6 +104,29 @@
       <p>Surveillez les actions de l'IA en temps réel pendant les batailles.</p>
     </div>
 
+  </div>
+
+  <!-- Nouvelle grille / dossier d'icones -->
+  <div class="grid-container bg-gray-400 text-black">
+
+    <!-- Carte :  -->
+    <div class="carte">
+      <h2>Santé</h2>
+        <h3>Sommeil</h3>
+        <h3>Manger</h3>
+        <h3>Bouger</h3>
+    </div>
+
+    <!-- Carte :  -->
+    <div class="carte">
+      <h2></h2>
+    </div>
+    
+    <!-- Carte :  -->
+    <div class="carte">
+      <h2></h2>
+    </div>
+    
   </div>
 
   <!-- Graphiques avec ApexCharts -->

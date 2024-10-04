@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<!--   ===================== CONVENTION DE CODAGE =====================
+  
+  Projet : Fusion des Univers : {Pokémon, Yu-Gi-Oh!, WoW, LoL}
+  Auteur : ChatGPT
+  Date : [Date]
+
+  1. STRUCTURE DU CODE
+     - Respecter la hiérarchie des balises HTML et veiller à ce que la structure du DOM soit bien organisée.
+     - Utiliser des balises HTML sémantiques lorsque possible (ex: <header>, <main>, <section>, <footer>).
+     - Regrouper les scripts et styles en début de fichier ou dans des fichiers externes pour faciliter la maintenance.
+
+  2. STYLES CSS
+     - Préférer des classes réutilisables et des noms de classes clairs, basés sur la convention BEM (Bloc Élément Modificateur) si nécessaire.
+     - Minimiser l'utilisation de styles inline, préférer des classes Tailwind CSS pour les styles rapides.
+     - Utiliser des media queries pour un design responsive et garantir une bonne compatibilité multi-appareils.
+
+  3. INTERACTIVITÉ
+     - Utiliser Alpine.js pour de l'interactivité légère au lieu de JavaScript lourd ou de frameworks complexes.
+     - Regrouper les fonctionnalités JavaScript dans des fonctions modulaires pour éviter la redondance (par exemple, `createChart()`).
+     - Charger les scripts de manière asynchrone ou différée (`defer`) pour optimiser la vitesse de chargement.
+
+  4. ACCESSIBILITÉ & PERFORMANCE
+     - Toujours spécifier les attributs `alt` dans les balises <img> pour améliorer l'accessibilité.
+     - Minimiser le poids des fichiers (CSS, JS) et éviter les dépendances inutiles pour améliorer les performances.
+     - Utiliser les couleurs et contrastes accessibles (vérifier avec des outils comme Lighthouse ou Wave).
+
+  5. COMMENTAIRES
+     - Les sections principales du code doivent être commentées pour clarifier l'intention.
+     - Les commentaires doivent être concis et informatifs, en français, et éviter d’être redondants avec le code.
+
+  6. NAMING (Nomination des classes, variables et IDs)
+     - Les noms de classes doivent être en anglais, lisibles, et explicites (par exemple : `championHealthChart` pour un graphique de santé).
+     - Suivre une convention camelCase pour les noms de variables et IDs JavaScript.
+     - Utiliser des noms clairs et descriptifs pour les fonctions (par exemple, `createChart()`).
+
+  7. RESPONSIVITÉ
+     - Les grilles doivent être responsives, en utilisant Tailwind CSS ou des media queries pour adapter les colonnes selon la taille de l’écran.
+     - Tester sur différents appareils et navigateurs pour assurer une expérience utilisateur fluide.
+
+  8. MISE À JOUR & MAINTENANCE
+     - Tout nouveau code doit suivre cette convention pour garantir une maintenance facile et cohérente à long terme.
+     - Chaque nouvelle fonctionnalité doit être testée avant la mise en production.
+
+  ================================================================
+-->
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fusion : Pokémon, Yu-Gi-Oh!, WoW, LoL</title>
+  
+  <!-- Importation des ressources -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+  <style>
+    body {
+      background-color: #101522; color: #fff; font-family: 'Roboto', sans-serif;
+    }
+    .carte {
+      background: rgba(255, 255, 255, 0.1); border-radius: 15px; padding: 20px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s ease-in-out;
+    }
+    .carte:hover { transform: translateY(-10px); }
+    .header { text-align: center; padding: 20px; }
+    .header h1 { font-size: 2rem; font-weight: bold; color: #FFEB3B; }
+    .grid-container { display: grid; grid-template-columns: repeat(1, 1fr); gap: 20px; padding: 20px; }
+    @media (min-width: 768px) { .grid-container { grid-template-columns: repeat(2, 1fr); } }
+    @media (min-width: 1024px) { .grid-container { grid-template-columns: repeat(4, 1fr); } }
+    h2 { text-shadow: 0 0 5px rgba(255, 255, 255, 0.5), 0 0 10px rgba(0, 150, 255, 0.7); }
+  </style>
+</head>
+<body>
+  <!-- En-tête -->
+  <header class="header">
+    <h1>⚔️ Fusion des Univers : Pokémon, Yu-Gi-Oh!, WoW, LoL 🌟</h1>
+  </header>
+
+        <!-- Contenu des cartes -->
+        <div class="grid-container mb-8">
+            <div class="carte" x-data="{ health: 85 }">
+            <h2>💪 Statut des Champions</h2>
+            <div id="championHealthChart"></div>
+            <p class="text-xl" x-text="'Santé : ' + health + '%'"></p>
+            </div>
+            <div class="carte">
+            <h2>🃏 Cartes & Compétences</h2>
+            <div id="competenceChart"></div>
+            </div>
+            <div class="carte">
+            <h2>📊 Rang Ladder Contacts</h2>
+            <div id="rangeLadderChart"></div>
+            </div>
+            <div class="carte">
+            <h2>🤖 Activité de l'IA</h2>
+            <p>Surveillez les actions de l'IA en temps réel pendant les batailles.</p>
+            </div>
+        </div>
+
+        <div class="grid-container bg-black text-white">
+            <div class="carte" x-data="{ health: 85 }">
+            <h2>💪 Statut des Champions</h2>
+            <div id="championHealthChart"></div>
+            <p class="text-xl" x-text="'Santé : ' + health + '%'"></p>
+            </div>
+            <div class="carte">
+            <h2>🃏 Cartes & Compétences</h2>
+            <div id="competenceChart"></div>
+            </div>
+            <div class="carte">
+            <h2>📊 Progression de la Campagne</h2>
+            <div id="progressChart"></div>
+            </div>
+        </div>
+
+  <!-- Graphiques avec ApexCharts -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const createChart = (selector, options) => new ApexCharts(document.querySelector(selector), options).render();
+
+      // Graphique de Santé des Champions
+      createChart("#championHealthChart", {
+        chart: { type: 'radialBar', height: 350 },
+        series: [85], labels: ['Santé'], colors: ['#00E396']
+      });
+
+      // Graphique des Compétences
+      createChart("#competenceChart", {
+        chart: { type: 'line', height: 350 },
+        series: [{ name: 'Compétence débloquée', data: [5, 15, 25, 35, 55, 65, 75, 85, 95, 100] }],
+        xaxis: { categories: ['Niv 1', 'Niv 2', 'Niv 3', 'Niv 4', 'Niv 5', 'Niv 6', 'Niv 7', 'Niv 8', 'Niv 9', 'Niv 10'] },
+        colors: ['#FF4560']
+      });
+
+      // Graphique de Range Ladder Contacts
+      createChart("#rangeLadderChart", {
+        chart: { type: 'bar', height: 350 },
+        series: [{ name: 'Contacts', data: [50, 35, 10, 4, 0.5, 0.1] }],
+        xaxis: { categories: ['Non classé', 'Combattant', 'Rival', 'Duelliste', 'Gladiateur', 'Elite Gladiateur'] },
+        colors: ['#775DD0']
+      });
+    });
+  </script>
+
+</body>
+</html>

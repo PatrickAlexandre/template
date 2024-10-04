@@ -3,181 +3,161 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>🚀 Tableau de bord Futuriste 2050 🌐</title>
+  <title>Fusion : Pokémon, Yu-Gi-Oh!, WoW, LoL</title>
   
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
   
-  <!-- ApexCharts pour les visualisations de données -->
+  <!-- ApexCharts pour les visualisations -->
   <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
-  
-  <!-- Alpine.js pour l'interactivité légère -->
+
+  <!-- Alpine.js pour interactivité légère -->
   <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
   <style>
-    /* Styles personnalisés pour un design futuriste */
     body {
-      background-color: #0b0e13;
+      background-color: #101522;
       color: #fff;
       font-family: 'Roboto', sans-serif;
     }
 
+    .carte {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 15px;
+      padding: 20px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .carte:hover {
+      transform: translateY(-10px);
+    }
+
+    .header {
+      text-align: center;
+      padding: 20px;
+    }
+
+    .header h1 {
+      font-size: 2rem;
+      font-weight: bold;
+      color: #FFEB3B; /* Couleur inspirée de Pokémon et LoL */
+    }
+
     .grid-container {
       display: grid;
-      grid-template-columns: repeat(1, 1fr); /* Pour mobile : une seule colonne */
-      grid-gap: 20px;
+      grid-template-columns: repeat(1, 1fr);
+      gap: 20px;
       padding: 20px;
     }
 
     @media (min-width: 768px) {
       .grid-container {
-        grid-template-columns: repeat(2, 1fr); /* Pour tablette : deux colonnes */
+        grid-template-columns: repeat(2, 1fr);
       }
     }
 
     @media (min-width: 1024px) {
       .grid-container {
-        grid-template-columns: repeat(4, 1fr); /* Pour PC : quatre colonnes */
+        grid-template-columns: repeat(4, 1fr);
       }
     }
 
-    .carte {
-      background-color: rgba(255, 255, 255, 0.1);
-      border-radius: 12px;
-      padding: 20px;
-      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-      transition: transform 0.3s ease;
-    }
-
-    .carte:hover {
-      transform: translateY(-5px);
-    }
-
-    .carte h2 {
-      font-size: 1.5rem;
-      margin-bottom: 1rem;
-    }
-
-    .en-tete {
-      grid-column: span 1;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 20px;
-      background-color: rgba(255, 255, 255, 0.1);
-      border-radius: 12px;
-    }
-
-    @media (min-width: 1024px) {
-      .en-tete {
-        grid-column: span 4; /* En-tête sur toute la largeur pour PC */
-      }
-    }
-
-    .en-tete h1 {
-      font-size: 2rem; /* Ajustement pour mobile */
-      font-weight: bold;
-    }
-
-    @media (min-width: 1024px) {
-      .en-tete h1 {
-        font-size: 2.5rem; /* Plus grand sur écran PC */
-      }
-    }
-
-    .en-tete .profil {
-      display: flex;
-      align-items: center;
-    }
-
-    .profil img {
-      border-radius: 50%;
-      margin-left: 20px;
-      width: 40px; /* Ajustement pour mobile */
-    }
-
-    @media (min-width: 1024px) {
-      .profil img {
-        width: 50px; /* Plus grand sur écran PC */
-      }
+    /* Effets de texte lumineux */
+    h2 {
+      text-shadow: 0 0 5px rgba(255, 255, 255, 0.5), 0 0 10px rgba(0, 150, 255, 0.7);
     }
   </style>
 </head>
 <body>
 
-  <!-- Tableau de bord principal -->
+  <!-- En-tête -->
+  <header class="header">
+    <h1>⚔️ Fusion des Univers : Pokémon, Yu-Gi-Oh!, WoW, LoL 🌟</h1>
+  </header>
+
+  <!-- Contenu du tableau de bord -->
   <div class="grid-container">
 
-    <!-- En-tête futuriste -->
-    <div class="en-tete">
-      <h1>🚀 Tableau de bord 2050 🌐</h1>
-      <div class="profil">
-        <span>Bienvenue, Utilisateur 👤</span>
-        <img src="https://via.placeholder.com/50" alt="Profil Utilisateur">
-      </div>
+    <!-- Carte : Statut des Champions/Créatures -->
+    <div class="carte" x-data="{ health: 85 }">
+      <h2>💪 Statut des Champions</h2>
+      <div id="championHealthChart"></div>
+      <p class="text-xl" x-text="'Santé : ' + health + '%'"></p>
     </div>
 
-    <!-- Première carte de données -->
-    <div class="carte" x-data="{ value: 75 }">
-      <h2>⚡ Utilisation de l'énergie</h2>
-      <div id="energieChart"></div>
-    </div>
-
-    <!-- Deuxième carte avec données en temps réel -->
-    <div class="carte" x-data="{ temperature: 22 }">
-      <h2>🌡️ Température actuelle</h2>
-      <p class="text-2xl" x-text="temperature + ' °C'"></p>
-    </div>
-
-    <!-- Troisième carte avec graphique -->
+    <!-- Carte : Cartes ou Compétences -->
     <div class="carte">
-      <h2>📊 Performance</h2>
-      <div id="performanceChart"></div>
+      <h2>🃏 Cartes & Compétences</h2>
+      <div id="competenceChart"></div>
     </div>
 
-    <!-- Quatrième carte de données -->
+    <!-- Carte : Progression -->
+    <div class="carte">
+      <h2>📊 Progression de la Campagne</h2>
+      <div id="progressChart"></div>
+    </div>
+
+    <!-- Carte : Activité de l'IA -->
     <div class="carte">
       <h2>🤖 Activité de l'IA</h2>
-      <p>Suivi des actions de l'IA en temps réel.</p>
+      <p>Surveillez les actions de l'IA en temps réel pendant les batailles.</p>
     </div>
 
   </div>
 
-  <!-- Scripts pour les graphiques avec ApexCharts -->
+  <!-- Graphiques avec ApexCharts -->
   <script>
     document.addEventListener("DOMContentLoaded", () => {
-      // Graphique d'utilisation d'énergie
-      var optionsEnergie = {
+
+      // Graphique de Santé des Champions (inspiré de LoL/Pokémon)
+      var optionsHealth = {
         chart: {
           type: 'radialBar',
           height: 350,
         },
-        series: [75],
-        labels: ['Utilisation de l\'énergie'],
-        colors: ['#00E396']
+        series: [85],
+        labels: ['Santé'],
+        colors: ['#00E396'] // Couleur verte inspirée de Pokémon
       };
+      var healthChart = new ApexCharts(document.querySelector("#championHealthChart"), optionsHealth);
+      healthChart.render();
 
-      var energieChart = new ApexCharts(document.querySelector("#energieChart"), optionsEnergie);
-      energieChart.render();
-
-      // Graphique de performance
-      var optionsPerformance = {
+      // Graphique des Compétences (Yu-Gi-Oh!)
+      var optionsCompetence = {
         chart: {
           type: 'line',
           height: 350,
         },
         series: [{
-          name: 'Performance',
-          data: [20, 40, 35, 50, 49, 60, 70, 91, 125]
+          name: 'Compétence débloquée',
+          data: [5, 15, 25, 35, 55, 65, 75, 85, 95, 100]
         }],
         xaxis: {
-          categories: ['Janv', 'Févr', 'Mars', 'Avr', 'Mai', 'Juin', 'Juil', 'Août', 'Sept'],
+          categories: ['Niv 1', 'Niv 2', 'Niv 3', 'Niv 4', 'Niv 5', 'Niv 6', 'Niv 7', 'Niv 8', 'Niv 9', 'Niv 10'],
         },
-        colors: ['#FF4560'],
+        colors: ['#FF4560'] // Rouge inspiré des invocations dans Yu-Gi-Oh!
       };
+      var competenceChart = new ApexCharts(document.querySelector("#competenceChart"), optionsCompetence);
+      competenceChart.render();
 
-      var performanceChart = new ApexCharts(document.querySelector("#performanceChart"), optionsPerformance);
-      performanceChart.render();
+      // Graphique de Progression de la Campagne (WoW/LoL)
+      var optionsProgress = {
+        chart: {
+          type: 'bar',
+          height: 350,
+        },
+        series: [{
+          name: 'Progression',
+          data: [10, 20, 30, 40, 50, 60, 70, 80, 90, 100]
+        }],
+        xaxis: {
+          categories: ['Zone 1', 'Zone 2', 'Zone 3', 'Zone 4', 'Zone 5', 'Zone 6', 'Zone 7', 'Zone 8', 'Zone 9', 'Zone 10'],
+        },
+        colors: ['#775DD0'] // Violet inspiré de WoW
+      };
+      var progressChart = new ApexCharts(document.querySelector("#progressChart"), optionsProgress);
+      progressChart.render();
     });
   </script>
 

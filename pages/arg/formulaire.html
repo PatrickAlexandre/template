@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulaire d'Identité</title>
+    <script defer src="script.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100">
+
+    <div class="container mx-auto p-6">
+        <div class="bg-white shadow-md rounded p-6">
+            <h1 class="text-2xl font-bold mb-6 text-center">Formulaire d'Identité</h1>
+            
+            <form id="identiteForm" class="space-y-4">
+                <div>
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="nom">Nom</label>
+                    <input id="nom" type="text" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Entrez votre nom">
+                </div>
+
+                <div>
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="age">Âge</label>
+                    <input id="age" type="number" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Entrez votre âge">
+                </div>
+
+                <div>
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="poids">Poids (kg)</label>
+                    <input id="poids" type="number" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Entrez votre poids">
+                </div>
+
+                <div>
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="taille">Taille (cm)</label>
+                    <input id="taille" type="number" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Entrez votre taille">
+                </div>
+
+                <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full">Soumettre</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("identiteForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            
+            let nom = document.getElementById("nom").value;
+            let age = document.getElementById("age").value;
+            let poids = document.getElementById("poids").value;
+            let taille = document.getElementById("taille").value;
+
+            if (nom && age && poids && taille) {
+                localStorage.setItem('nom', nom);
+                localStorage.setItem('age', age);
+                localStorage.setItem('poids', poids);
+                localStorage.setItem('taille', taille);
+                alert("Informations enregistrées avec succès !");
+            } else {
+                alert("Veuillez remplir tous les champs.");
+            }
+        });
+    </script>
+</body>
+</html>

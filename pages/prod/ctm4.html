@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sites des Espaces Verts à Sartrouville</title>
+    <!-- Inclure la bibliothèque jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Inclure la bibliothèque DataTables -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.min.css">
+    <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 100%;
+            margin: 20px 0;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+    </style>
+
+    <script>
+        $(document).ready(function() {
+            $('#greenSpacesTable').DataTable({
+                "paging": true,
+                "searching": true,
+                "order": [[ 0, "asc" ]], // Trie par défaut par nom de site
+                "columnDefs": [
+                    { "orderable": true, "targets": 0 }, // Autoriser le tri par N°
+                    { "orderable": true, "targets": 1 }, // Autoriser le tri par Site
+                    { "orderable": true, "targets": 2 }, // Autoriser le tri par Fréquence
+                    { "orderable": true, "targets": 3 }, // Autoriser le tri par Catégorie
+                    { "orderable": true, "targets": 4 }  // Autoriser le tri par Semaine
+                ],
+                "lengthMenu": [ [50, 1, 5, -1], [50, "Aujourd'hui", "5", "Tous"] ] // Modifier le nombre d'entrées visibles
+            });
+        });
+    </script>
+</head>
+<body>
+
+    <h1>Sites des Espaces Verts de Sartrouville</h1>
+
+    <table id="greenSpacesTable" class="display">
+        <thead>
+            <tr>
+                <th>N°</th>
+                <th>Site</th>
+                <th>Fréquence</th>
+                <th>Catégorie</th>
+                <th>Semaine</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>Parc Youri Gagarine</td>
+                <td>Hebdomadaire</td>
+                <td>Parcs et Jardins</td>
+                <td>1</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Parc Genevoix</td>
+                <td>Hebdomadaire</td>
+                <td>Parcs et Jardins</td>
+                <td>2</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Parc Léo Lagrange</td>
+                <td>Hebdomadaire</td>
+                <td>Parcs et Jardins</td>
+                <td>3</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>Parc de la Fête</td>
+                <td>Hebdomadaire</td>
+                <td>Parcs et Jardins</td>
+                <td>4</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>Parc des 4 chemins et sa noue paysagère</td>
+                <td>Hebdomadaire</td>
+                <td>Parcs et Jardins</td>
+                <td>1</td>
+            </tr>
+            <tr>
+                <td>6</td>
+                <td>Square Linné</td>
+                <td>Hebdomadaire</td>
+                <td>Parcs et Jardins</td>
+                <td>2</td>
+            </tr>
+            <tr>
+                <td>7</td>
+                <td>Square Raoul Dufy</td>
+                <td>Hebdomadaire</td>
+                <td>Parcs et Jardins</td>
+                <td>3</td>
+            </tr>
+            <tr>
+                <td>8</td>
+                <td>Place Alexandre Dumas</td>
+                <td>Hebdomadaire</td>
+                <td>Parcs et Jardins</td>
+                <td>4</td>
+            </tr>
+            <tr>
+                <td>9</td>
+                <td>Place Stendhal</td>
+                <td>Hebdomadaire</td>
+                <td>Parcs et Jardins</td>
+                <td>1</td>
+            </tr>
+            <tr>
+                <td>10</td>
+                <td>PMG Ouest</td>
+                <td>Hebdomadaire</td>
+                <td>Parcs et Jardins</td>
+                <td>2</td>
+            </tr>
+            <tr>
+                <td>11</td>
+                <td>PMG Est</td>
+                <td>Hebdomadaire</td>
+                <td>Parcs et Jardins</td>
+                <td>3</td>
+            </tr>
+            <tr>
+                <td>12</td>
+                <td>Place Darwin</td>
+                <td>Hebdomadaire</td>
+                <td>Parcs et Jardins</td>
+                <td>4</td>
+            </tr>
+            <tr>
+                <td>13</td>
+                <td>Grand V</td>
+                <td>Hebdomadaire</td>
+                <td>Parcs et Jardins</td>
+                <td>1</td>
+            </tr>
+            <tr>
+                <td>14</td>
+                <td>Parc des Indes + esplanade G. Brassens</td>
+                <td>Hebdomadaire</td>
+                <td>Parcs et Jardins</td>
+                <td>2</td>
+            </tr>
+            <tr>
+                <td>15</td>
+                <td>Rond-point Grétry</td>
+                <td>Hebdomadaire</td>
+                <td>Giratoires</td>
+                <td>3</td>
+            </tr>
+            <tr>
+                <td>16</td>
+                <td>Rond-point Saint Exupéry / G. Clemenceau</td>
+                <td>Hebdomadaire</td>
+                <td>Giratoires</td>
+                <td>4</td>
+            </tr>
+            <tr>
+                <td>17</td>
+                <td>Rond-point de Cormeilles</td>
+                <td>Hebdomadaire</td>
+                <td>Giratoires</td>
+                <td>1</td>
+            </tr>
+            <tr>
+                <td>18</td>
+                <td>Rond-point Maupassant</td>
+                <td>Hebdomadaire</td>
+                <td>Giratoires</td>
+                <td>2</td>
+            </tr>
+            <tr>
+                <td>19</td>
+                <td>Rond-point Timbaud</td>
+                <td>Hebdomadaire</td>
+                <td>Giratoires</td>
+                <td>3</td>
+            </tr>
+            <tr>
+                <td>20</td>
+                <td>Rue Guy de Maupassant</td>
+                <td>Hebdomadaire</td>
+                <td>Accompagnements de Voirie</td>
+                <td>4</td>
+            </tr>
+            <tr>
+                <td>21</td>
+                <td>Gare routière Guy de Maupassant</td>
+                <td>Hebdomadaire</td>
+                <td>Accompagnements de Voirie</td>
+                <td>1</td>
+            </tr>
+            <tr>
+                <td>22</td>
+                <td>Rue Dumas</td>
+                <td>Hebdomadaire</td>
+                <td>Accompagnements de Voirie</td>
+                <td>2</td>
+            </tr>
+            <tr>
+                <td>23</td>
+                <td>Angle rue P. Brossolette / rue Barian</td>
+                <td>Hebdomadaire</td>
+                <td>Accompagnements de Voirie</td>
+                <td>3</td>
+            </tr>
+            <tr>
+                <td>24</td>
+                <td>Zone industrielle</td>
+                <td>Hebdomadaire</td>
+                <td>Accompagnements de Voirie</td>
+                <td>4</td>
+            </tr>
+            <tr>
+                <td>25</td>
+                <td>Rue Florian + rue Lakanal</td>
+                <td>Hebdomadaire</td>
+                <td>Accompagnements de Voirie</td>
+                <td>1</td>
+            </tr>
+            <tr>
+                <td>26</td>
+                <td>Rue de Tunis</td>
+                <td>Hebdomadaire</td>
+                <td>Accompagnements de Voirie</td>
+                <td>2</td>
+            </tr>
+            <tr>
+                <td>27</td>
+                <td>Angle rue Roger Hugues / rue Baudelaire</td>
+                <td>Hebdomadaire</td>
+                <td>Accompagnements de Voirie</td>
+                <td>3</td>
+            </tr>
+            <tr>
+                <td>28</td>
+                <td>Rue des acacias</td>
+                <td>Hebdomadaire</td>
+                <td>Accompagnements de Voirie</td>
+                <td>4</td>
+            </tr>
+            <tr>
+                <td>29</td>
+                <td>Angle rue Condorcet / G. Clemenceau + angle rue Verlaine / G. Clemenceau</td>
+                <td>Hebdomadaire</td>
+                <td>Accompagnements de Voirie</td>
+                <td>1</td>
+            </tr>
+            <tr>
+                <td>30</td>
+                <td>Angle Clemenceau / avenue Val Notre-Dame</td>
+                <td>Hebdomadaire</td>
+                <td>Accompagnements de Voirie</td>
+                <td>2</td>
+            </tr>
+            <tr>
+                <td>31</td>
+                <td>Rue des clos (borne à incendie)</td>
+                <td>Hebdomadaire</td>
+                <td>Accompagnements de Voirie</td>
+                <td>3</td>
+            </tr>
+            <tr>
+                <td>32</td>
+                <td>Rue Calmette - Guérin</td>
+                <td>Hebdomadaire</td>
+                <td>Accompagnements de Voirie</td>
+                <td>4</td>
+            </tr>
+            <tr>
+                <td>33</td>
+                <td>Route de Pontoise</td>
+                <td>Hebdomadaire</td>
+                <td>Accompagnements de Voirie</td>
+                <td>1</td>
+            </tr>
+            <tr>
+                <td>34</td>
+                <td>Rue du clos (face KFC) entretien externalisé</td>
+                <td>Hebdomadaire</td>
+                <td>Accompagnements de Voirie</td>
+                <td>2</td>
+            </tr>
+            <tr>
+                <td>35</td>
+                <td>Angle rue Bourquelot / rue Paul Bert</td>
+                <td>Hebdomadaire</td>
+                <td>Accompagnements de Voirie</td>
+                <td>3</td>
+            </tr>
+            <tr>
+                <td>36</td>
+                <td>Avenue Rochefort</td>
+                <td>Hebdomadaire</td>
+                <td>Accompagnements de Voirie</td>
+                <td>4</td>
+            </tr>
+            <tr>
+                <td>37</td>
+                <td>Rue F. Villon</td>
+                <td>Hebdomadaire</td>
+                <td>Accompagnements de Voirie</td>
+                <td>1</td>
+            </tr>
+            <tr>
+                <td>38</td>
+                <td>Quartier des 4 chemins (à planifier en hiver)</td>
+                <td>Hebdomadaire</td>
+                <td>Accompagnements de Voirie</td>
+                <td>2</td>
+            </tr>
+            <tr>
+                <td>39</td>
+                <td>Théâtre F. Brel</td>
+                <td>Hebdomadaire</td>
+                <td>Équipements Publics</td>
+                <td>3</td>
+            </tr>
+            <tr>
+                <td>40</td>
+                <td>Mairie Annexe</td>
+                <td>Hebdomadaire</td>
+                <td>Équipements Publics</td>
+                <td>4</td>
+            </tr>
+            <tr>
+                <td>41</td>
+                <td>Bibliothèque Stendhal</td>
+                <td>Hebdomadaire</td>
+                <td>Équipements Publics</td>
+                <td>1</td>
+            </tr>
+            <tr>
+                <td>42</td>
+                <td>Marcel Cerdan</td>
+                <td>Hebdomadaire</td>
+                <td>Équipements Publics</td>
+                <td>2</td>
+            </tr>
+            <tr>
+                <td>43</td>
+                <td>Tennis Youri Gagarine</td>
+                <td>Hebdomadaire</td>
+                <td>Équipements Publics</td>
+                <td>3</td>
+            </tr>
+            <tr>
+                <td>44</td>
+                <td>Crèche Croque la vie (mardi matin)</td>
+                <td>Hebdomadaire</td>
+                <td>Crèches, Centres de Loisirs et Écoles</td>
+                <td>4</td>
+            </tr>
+            <tr>
+                <td>45</td>
+                <td>Halte-garderie Dansons la capucine (mardi matin)</td>
+                <td>Hebdomadaire</td>
+                <td>Crèches, Centres de Loisirs et Écoles</td>
+                <td>1</td>
+            </tr>
+            <tr>
+                <td>46</td>
+                <td>Centre J. Auriol (hors mercredi et congés scolaires)</td>
+                <td>Hebdomadaire</td>
+                <td>Crèches, Centres de Loisirs et Écoles</td>
+                <td>2</td>
+            </tr>
+            <tr>
+                <td>47</td>
+                <td>Centre Charles Péguy</td>
+                <td>Hebdomadaire</td>
+                <td>Crèches, Centres de Loisirs et Écoles</td>
+                <td>3</td>
+            </tr>
+        </tbody>
+    </table>
+
+</body>
+</html>

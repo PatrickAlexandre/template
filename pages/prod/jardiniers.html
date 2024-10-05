@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analyse des Performances des Jardiniers</title>
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- DataTables CSS -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
+    <!-- DataTables JS -->
+    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+    <!-- ApexCharts -->
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        /* HERO SECTION */
+        .hero-section {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .hero-card {
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 48%;
+            height: 300px; /* Adjust the height as needed */
+            padding: 20px;
+            margin-bottom: 20px;
+            box-sizing: border-box;
+            overflow: auto;
+        }
+
+        /* Responsive for smaller screens */
+        @media (max-width: 768px) {
+            .hero-card {
+                width: 100%;
+                height: auto;
+            }
+        }
+
+        /* Styles for the performance table */
+        #performance-table, #sites-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        #performance-table th, #performance-table td, #sites-table th, #sites-table td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: center;
+        }
+
+        #performance-table th, #sites-table th {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        #performance-table tr:nth-child(even), #sites-table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        #performance-table tr:hover, #sites-table tr:hover {
+            background-color: #f1f1f1;
+        }
+
+        .fas {
+            color: #FFD700;
+        }
+
+        .contact-icons a {
+            color: #4CAF50;
+            margin: 0 10px;
+            font-size: 1.5em;
+            text-decoration: none;
+        }
+
+        #performance-table td div {
+            width: 150px;
+            height: 150px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Analyse des Performances des Jardiniers</h1>
+
+    <!-- HERO SECTION -->
+    <section class="hero-section">
+        <!-- Liste des Sites (remplacée par le tableau à 5 colonnes) -->
+        <div class="hero-card" id="liste-sites">
+            <h2>Liste des Sites</h2>
+            <table id="sites-table">
+                <thead>
+                    <tr>
+                        <th>N°</th>
+                        <th>Titre</th>
+                        <th>Fréquence</th>
+                        <th>Catégorie</th>
+                        <th>Semaine</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Entretien Site A</td>
+                        <td>Hebdomadaire</td>
+                        <td>Jardinage</td>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Entretien Site B</td>
+                        <td>Bi-mensuel</td>
+                        <td>Jardinage</td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Entretien Site C</td>
+                        <td>Mensuel</td>
+                        <td>Nettoyage</td>
+                        <td>3</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>Réparation Site D</td>
+                        <td>Trimestriel</td>
+                        <td>Réparation</td>
+                        <td>4</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>Entretien Site E</td>
+                        <td>Annuel</td>
+                        <td>Arrosage</td>
+                        <td>5</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Carte -->
+        <div class="hero-card" id="carte">
+            <h2>Carte des Sites</h2>
+            <!-- Placeholder for the map -->
+            <div style="background-color: lightgray; display: flex; align-items: center; justify-content: center;">
+                <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1X3tqLrz7lfqvgDEShX8CNL1fLMBw-_0&ehbc=2E312F" width="640" height="480"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tableau des performances -->
+    <table id="performance-table" class="display">
+        <thead>
+            <tr>
+                <th>Nom</th>
+                <th>Date de naissance</th>
+                <th>Date de début de contrat</th>
+                <th>Échelon</th>
+                <th>Zones entretenues</th>
+                <th>Taux de réussite</th>
+                <th>Note</th>
+                <th>Graphique</th>
+                <th>Contact</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Rasta</td>
+                <td>12/05/1980</td>
+                <td>01/02/2015</td>
+                <td>4</td>
+                <td>6</td>
+                <td>95%</td>
+                <td data-note="5"><i class="fas fa-star"></i> <i class="fas fa-star"></i> <i class="fas fa-star"></i> <i class="fas fa-star"></i> <i class="fas fa-star"></i></td>
+                <td><div id="chart-rasta"></div></td>
+                <td class="contact-icons">
+                    <a href="tel:+123456789"><i class="fas fa-phone"></i></a>
+                    <a href="sms:+123456789"><i class="fas fa-sms"></i></a>
+                </td>
+            </tr>
+            <tr>
+                <td>Iris</td>
+                <td>15/07/1985</td>
+                <td>01/03/2016</td>
+                <td>3</td>
+                <td>5</td>
+                <td>90%</td>
+                <td data-note="4.5"><i class="fas fa-star"></i> <i class="fas fa-star"></i> <i class="fas fa-star"></i> <i class="fas fa-star"></i> <i class="fas fa-star-half-alt"></i></td>
+                <td><div id="chart-iris"></div></td>
+                <td class="contact-icons">
+                    <a href="tel:+123456789"><i class="fas fa-phone"></i></a>
+                    <a href="sms:+123456789"><i class="fas fa-sms"></i></a>
+                </td>
+            </tr>
+            <tr>
+                <td>Patrick</td>
+                <td>23/03/1990</td>
+                <td>15/04/2018</td>
+                <td>2</td>
+                <td>4</td>
+                <td>85%</td>
+                <td data-note="4"><i class="fas fa-star"></i> <i class="fas fa-star"></i> <i class="fas fa-star"></i> <i class="fas fa-star"></i></td>
+                <td><div id="chart-patrick"></div></td>
+                <td class="contact-icons">
+                    <a href="tel:+123456789"><i class="fas fa-phone"></i></a>
+                    <a href="sms:+123456789"><i class="fas fa-sms"></i></a>
+                </td>
+            </tr>
+            <tr>
+                <td>Emmanuel</td>
+                <td>10/11/1982</td>
+                <td>01/01/2012</td>
+                <td>5</td>
+                <td>6</td>
+                <td>92%</td>
+                <td data-note="5"><i class="fas fa-star"></i> <i class="fas fa-star"></i> <i class="fas fa-star"></i> <i class="fas fa-star"></i> <i class="fas fa-star"></i></td>
+                <td><div id="chart-emmanuel"></div></td>
+                <td class="contact-icons">
+                    <a href="tel:+123456789"><i class="fas fa-phone"></i></a>
+                    <a href="sms:+123456789"><i class="fas fa-sms"></i></a>
+                </td>
+            </tr>
+            <tr>
+                <td>Christophe</td>
+                <td>05/09/1992</td>
+                <td>12/05/2019</td>
+                <td>2</td>
+                <td>3</td>
+                <td>88%</td>
+                <td data-note="4"><i class="fas fa-star"></i> <i class="fas fa-star"></i> <i class="fas fa-star"></i> <i class="fas fa-star"></i></td>
+                <td><div id="chart-christophe"></div></td>
+                <td class="contact-icons">
+                    <a href="tel:+123456789"><i class="fas fa-phone"></i></a>
+                    <a href="sms:+123456789"><i class="fas fa-sms"></i></a>
+                </td>
+            </tr>
+            <tr>
+                <td>Isabelle</td>
+                <td>21/06/1987</td>
+                <td>07/10/2017</td>
+                <td>3</td>
+                <td>5</td>
+                <td>89%</td>
+                <td data-note="4"><i class="fas fa-star"></i> <i class="fas fa-star"></i> <i class="fas fa-star"></i> <i class="fas fa-star"></i></td>
+                <td><div id="chart-isabelle"></div></td>
+                <td class="contact-icons">
+                    <a href="tel:+123456789"><i class="fas fa-phone"></i></a>
+                    <a href="sms:+123456789"><i class="fas fa-sms"></i></a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script>
+        // Initialiser DataTables sur le tableau
+        $(document).ready(function() {
+            $('#performance-table').DataTable({
+                "columnDefs": [
+                    {
+                        // Activer le tri par nombre d'étoiles dans la colonne "Note"
+                        "targets": 6,
+                        "orderDataType": "dom-data-note",
+                        "type": "num"
+                    }
+                ]
+            });
+        });
+
+        // Définir le type de données personnalisées pour la colonne des étoiles
+        $.fn.dataTable.ext.order['dom-data-note'] = function (settings, col) {
+            return this.api().column(col, {order: 'index'}).nodes().map(function (td, i) {
+                return $(td).data('note');
+            });
+        };
+
+        // Données des performances (exemple pour Rasta)
+        var optionsRasta = {
+            chart: {
+                type: 'radialBar',
+                height: 150
+            },
+            series: [95], // Pourcentage de réussite
+            labels: ['Rasta'],
+            colors: ['#4CAF50'],
+        };
+
+        var chartRasta = new ApexCharts(document.querySelector("#chart-rasta"), optionsRasta);
+        chartRasta.render();
+
+        // Données des performances (exemple pour Iris)
+        var optionsIris = {
+            chart: {
+                type: 'radialBar',
+                height: 150
+            },
+            series: [90], // Pourcentage de réussite
+            labels: ['Iris'],
+            colors: ['#4CAF50'],
+        };
+
+        var chartIris = new ApexCharts(document.querySelector("#chart-iris"), optionsIris);
+        chartIris.render();
+
+        // Données des performances (exemple pour Patrick)
+        var optionsPatrick = {
+            chart: {
+                type: 'radialBar',
+                height: 150
+            },
+            series: [85], // Pourcentage de réussite
+            labels: ['Patrick'],
+            colors: ['#4CAF50'],
+        };
+
+        var chartPatrick = new ApexCharts(document.querySelector("#chart-patrick"), optionsPatrick);
+        chartPatrick.render();
+
+        // Données des performances (exemple pour Emmanuel)
+        var optionsEmmanuel = {
+            chart: {
+                type: 'radialBar',
+                height: 150
+            },
+            series: [92], // Pourcentage de réussite
+            labels: ['Emmanuel'],
+            colors: ['#4CAF50'],
+        };
+
+        var chartEmmanuel = new ApexCharts(document.querySelector("#chart-emmanuel"), optionsEmmanuel);
+        chartEmmanuel.render();
+
+        // Données des performances (exemple pour Christophe)
+        var optionsChristophe = {
+            chart: {
+                type: 'radialBar',
+                height: 150
+            },
+            series: [88], // Pourcentage de réussite
+            labels: ['Christophe'],
+            colors: ['#4CAF50'],
+        };
+
+        var chartChristophe = new ApexCharts(document.querySelector("#chart-christophe"), optionsChristophe);
+        chartChristophe.render();
+
+        // Données des performances (exemple pour Isabelle)
+        var optionsIsabelle = {
+            chart: {
+                type: 'radialBar',
+                height: 150
+            },
+            series: [89], // Pourcentage de réussite
+            labels: ['Isabelle'],
+            colors: ['#4CAF50'],
+        };
+
+        var chartIsabelle = new ApexCharts(document.querySelector("#chart-isabelle"), optionsIsabelle);
+        chartIsabelle.render();
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Top 15 Bibliothèques HTML/CSS/JS - Tutoriel de formation</title>
+
+  <!-- 🌟 Bibliothèques CSS et JS 🌟 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.7.0/css/uikit.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/3.2.31/vue.global.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.2/angular.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.4.4/d3.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/chart.js/4.0.1/chart.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/3.8.0/cdn.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
+
+  <!-- 🎨 Styles personnalisés 🎨 -->
+  <style>
+    .card {
+      margin: 20px;
+      padding: 20px;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 🏷️ Titre de la page 🏷️ -->
+  <h1 class="text-center">Top 15 Bibliothèques HTML/CSS/JS - Tutoriel Complet</h1>
+  
+  <!-- 📚 Grille de tutoriels 📚 -->
+  <div class="grid">
+  
+    <!-- 🎨 Tutoriel 1: Bootstrap (la plus populaire) -->
+    <div class="card">
+      <h2>Bootstrap</h2>
+      <p><strong>Description :</strong> Bootstrap est le framework front-end le plus populaire pour concevoir des sites web réactifs et modernes. Il fournit une collection de classes CSS et de composants UI préconstruits.</p>
+
+      <h3>Exemple d'utilisation :</h3>
+      <p>Un simple bouton Bootstrap :</p>
+      <pre><code>&lt;button class="btn btn-primary"&gt;Bouton Bootstrap&lt;/button&gt;</code></pre>
+
+      <h3>Grille Bootstrap :</h3>
+      <pre><code>
+&lt;div class="container"&gt;
+  &lt;div class="row"&gt;
+    &lt;div class="col-md-6"&gt;Colonne 1 (50%)&lt;/div&gt;
+    &lt;div class="col-md-6"&gt;Colonne 2 (50%)&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+      </code></pre>
+
+      <h3>Démo :</h3>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6">
+            <button class="btn btn-primary">Bouton Bootstrap</button>
+          </div>
+          <div class="col-md-6">
+            <button class="btn btn-secondary">Bouton Secondaire</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- ⭐ Tutoriel 2: Tailwind CSS -->
+    <div class="card">
+      <h2>Tailwind CSS</h2>
+      <p><strong>Description :</strong> Tailwind CSS est un framework CSS utilitaire qui permet de concevoir des interfaces sans écrire de CSS personnalisé. Les classes utilitaires permettent de personnaliser facilement les éléments HTML.</p>
+
+      <h3>Exemple d'utilisation :</h3>
+      <p>Voici un exemple de bouton avec Tailwind CSS :</p>
+      <pre><code>&lt;button class="bg-blue-500 text-white py-2 px-4 rounded"&gt;Bouton Tailwind&lt;/button&gt;</code></pre>
+
+      <h3>Démo :</h3>
+      <button class="bg-blue-500 text-white py-2 px-4 rounded">Bouton Tailwind</button>
+    </div>
+    
+    <!-- 💫 Tutoriel 3: jQuery -->
+    <div class="card">
+      <h2>jQuery</h2>
+      <p><strong>Description :</strong> jQuery est une bibliothèque JavaScript qui simplifie la manipulation du DOM, la gestion des événements, et les animations. Elle est largement utilisée pour écrire des scripts interactifs avec peu de lignes de code.</p>
+
+      <h3>Exemple d'utilisation :</h3>
+      <p>Voici comment créer un événement de clic avec jQuery :</p>
+      <pre><code>&lt;button id="jqBtn"&gt;Cliquez-moi&lt;/button&gt;
+&lt;script&gt;
+  $('#jqBtn').click(function() {
+    alert('Bouton cliqué via jQuery!');
+  });
+&lt;/script&gt;
+      </code></pre>
+
+      <h3>Démo :</h3>
+      <button id="jqBtn">Cliquez-moi (jQuery)</button>
+      <script>
+        $('#jqBtn').click(function() {
+          alert('Bouton cliqué via jQuery!');
+        });
+      </script>
+    </div>
+    
+    <!-- 🚀 Tutoriel 4: React -->
+    <div class="card">
+      <h2>React</h2>
+      <p><strong>Description :</strong> React est une bibliothèque JavaScript développée par Facebook pour construire des interfaces utilisateur dynamiques. Elle est basée sur des composants réutilisables et utilise un DOM virtuel pour améliorer les performances.</p>
+
+      <h3>Exemple d'utilisation :</h3>
+      <p>Un composant simple en React :</p>
+      <pre><code>&lt;div id="react-app"&gt;&lt;/div&gt;
+&lt;script&gt;
+  const e = React.createElement;
+  const App = () => e('div', null, 'Hello from React!');
+  ReactDOM.render(e(App), document.getElementById('react-app'));
+&lt;/script&gt;
+      </code></pre>
+
+      <h3>Démo :</h3>
+      <div id="react-app"></div>
+      <script>
+        const e = React.createElement;
+        const App = () => e('div', null, 'Hello from React!');
+        ReactDOM.render(e(App), document.getElementById('react-app'));
+      </script>
+    </div>
+    
+    <!-- 🅰️ Tutoriel 5: Angular -->
+    <div class="card">
+      <h2>Angular</h2>
+      <p><strong>Description :</strong> Angular est un framework JavaScript complet pour créer des applications web dynamiques et single-page. Développé par Google, il utilise le concept de composants, de liaisons de données, et de gestion des états.</p>
+
+      <h3>Exemple d'utilisation :</h3>
+      <p>Voici un exemple simple avec Angular :</p>
+      <pre><code>&lt;div ng-app=""&gt;
+  Nom : &lt;input type="text" ng-model="name"&gt;
+  &lt;p&gt;Hello, {{ name }}!&lt;/p&gt;
+&lt;/div&gt;
+      </code></pre>
+
+      <h3>Démo :</h3>
+      <div ng-app="">
+        Nom : <input type="text" ng-model="name">
+        <p>Hello, {{ name }}!</p>
+      </div>
+    </div>
+    
+    <!-- 💻 Tutoriel 6: Vue.js -->
+    <div class="card">
+      <h2>Vue.js</h2>
+      <p><strong>Description :</strong> Vue.js est un framework JavaScript progressif permettant de construire des interfaces utilisateur interactives. Il est facile à intégrer dans un projet, léger, et extensible pour des applications plus grandes.</p>
+
+      <h3>Exemple d'utilisation :</h3>
+      <p>Voici comment afficher un message dynamique avec Vue.js :</p>
+      <pre><code>&lt;div id="vue-app"&gt;{{ message }}&lt;/div&gt;
+&lt;script&gt;
+  Vue.createApp({
+    data() {
+      return { message: 'Hello from Vue.js!' }
+    }
+  }).mount('#vue-app');
+&lt;/script&gt;
+      </code></pre>
+
+      <h3>Démo :</h3>
+      <div id="vue-app">{{ message }}</div>
+      <script>
+        Vue.createApp({
+          data() {
+            return { message: 'Hello from Vue.js!' }
+          }
+        }).mount('#vue-app');
+      </script>
+    </div>
+
+    <!-- 🔵 Tutoriel 7: Font Awesome -->
+    <div class="card">
+      <h2>Font Awesome</h2>
+      <p><strong>Description :</strong> Font Awesome fournit des icônes vectorielles personnalisables avec des classes CSS simples. Ces icônes sont largement utilisées pour améliorer la lisibilité et l'apparence des interfaces utilisateur.</p>
+
+      <h3>Exemple d'utilisation :</h3>
+      <p>Ajouter une icône étoile :</p>
+      <pre><code>&lt;i class="fas fa-star"&gt;&lt;/i&gt;</code></pre>
+
+      <h3>Utilisation dans un bouton :</h3>
+      <pre><code>&lt;button class="btn btn-primary"&gt;&lt;i class="fas fa-thumbs-up"&gt;&lt;/i&gt; Like&lt;/button&gt;</code></pre>
+
+      <h3>Démo :</h3>
+      <p>Icône étoile :</p>
+      <i class="fas fa-star"></i>
+      <p>Bouton avec icône :</p>
+      <button class="btn btn-primary">
+        <i class="fas fa-thumbs-up"></i> Like
+      </button>
+    </div>
+    
+    <!-- 💫 Tutoriel 8: Materialize -->
+    <div class="card">
+      <h2>Materialize</h2>
+      <p><strong>Description :</strong> Materialize est un framework CSS basé sur les principes de Material Design de Google. Il fournit des composants modernes, des grilles réactives, et des effets interactifs prêts à l'emploi.</p>
+
+      <h3>Exemple d'utilisation :</h3>
+      <p>Créer un bouton avec Materialize :</p>
+      <pre><code>&lt;a class="waves-effect waves-light btn"&gt;Bouton Materialize&lt;/a&gt;</code></pre>
+
+      <h3>Démo :</h3>
+      <a class="waves-effect waves-light btn">Bouton Materialize</a>
+    </div>
+    
+    <!-- 🟢 Tutoriel 9: Bulma -->
+    <div class="card">
+      <h2>Bulma</h2>
+      <p><strong>Description :</strong> Bulma est un framework CSS moderne basé sur Flexbox. Il permet de créer des interfaces réactives rapidement avec des classes CSS bien pensées pour chaque élément d'interface.</p>
+
+      <h3>Exemple d'utilisation :</h3>
+      <p>Créer un bouton avec Bulma :</p>
+      <pre><code>&lt;button class="button is-primary"&gt;Bouton Bulma&lt;/button&gt;</code></pre>
+
+      <h3>Démo :</h3>
+      <button class="button is-primary">Bouton Bulma</button>
+    </div>
+
+    <!-- 🌍 Tutoriel 10: GSAP (GreenSock) -->
+    <div class="card">
+      <h2>GSAP (GreenSock)</h2>
+      <p><strong>Description :</strong> GSAP (GreenSock Animation Platform) est une bibliothèque JavaScript dédiée à la création d'animations fluides et performantes sur le web.</p>
+
+      <h3>Exemple d'utilisation :</h3>
+      <p>Animation d'un élément avec GSAP :</p>
+      <pre><code>&lt;div id="box" style="width:100px;height:100px;background:red;"&gt;&lt;/div&gt;
+&lt;script&gt;
+  gsap.to("#box", {duration: 2, x: 300});
+&lt;/script&gt;
+      </code></pre>
+
+      <h3>Démo :</h3>
+      <div id="box" style="width:100px;height:100px;background:red;"></div>
+      <script>
+        gsap.to("#box", {duration: 2, x: 300});
+      </script>
+    </div>
+    
+    <!-- 🧩 Tutoriel 11: Three.js -->
+    <div class="card">
+      <h2>Three.js</h2>
+      <p><strong>Description :</strong> Three.js est une bibliothèque JavaScript pour créer des graphismes 3D dans le navigateur en utilisant WebGL.</p>
+
+      <h3>Exemple d'utilisation :</h3>
+      <p>Ajouter une scène 3D :</p>
+      <pre><code>// Script pour créer une scène Three.js</code></pre>
+      
+      <h3>Démo :</h3>
+      <p>Scène 3D : (Ajoutez votre scène ici)</p>
+    </div>
+    
+    <!-- 📊 Tutoriel 12: Chart.js -->
+    <div class="card">
+      <h2>Chart.js</h2>
+      <p><strong>Description :</strong> Chart.js est une bibliothèque JavaScript permettant de créer des graphiques interactifs et responsives en HTML5.</p>
+
+      <h3>Exemple d'utilisation :</h3>
+      <p>Créer un graphique à barres :</p>
+      <pre><code>&lt;canvas id="myChart"&gt;&lt;/canvas&gt;
+&lt;script&gt;
+  var ctx = document.getElementById('myChart').getContext('2d');
+  new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: ['Red', 'Blue', 'Yellow'],
+      datasets: [{
+        label: '# of Votes',
+        data: [12, 19, 3],
+        backgroundColor: ['red', 'blue', 'yellow']
+      }]
+    }
+  });
+&lt;/script&gt;
+      </code></pre>
+
+      <h3>Démo :</h3>
+      <canvas id="myChart"></canvas>
+      <script>
+        var ctx = document.getElementById('myChart').getContext('2d');
+        new Chart(ctx, {
+          type: 'bar',
+          data: {
+            labels: ['Red', 'Blue', 'Yellow'],
+            datasets: [{
+              label: '# of Votes',
+              data: [12, 19, 3],
+              backgroundColor: ['red', 'blue', 'yellow']
+            }]
+          }
+        });
+      </script>
+    </div>
+    
+    <!-- 📉 Tutoriel 13: D3.js -->
+    <div class="card">
+      <h2>D3.js</h2>
+      <p><strong>Description :</strong> D3.js est une bibliothèque JavaScript pour manipuler les données à travers des documents basés sur des standards comme SVG, HTML et CSS.</p>
+
+      <h3>Exemple d'utilisation :</h3>
+      <p>Créer un élément avec D3.js :</p>
+      <pre><code>&lt;div id="d3-chart"&gt;&lt;/div&gt;
+&lt;script&gt;
+  d3.select("#d3-chart").append("p").text("Hello D3.js!");
+&lt;/script&gt;
+      </code></pre>
+
+      <h3>Démo :</h3>
+      <div id="d3-chart"></div>
+      <script>
+        d3.select("#d3-chart").append("p").text("Hello D3.js!");
+      </script>
+    </div>
+
+    <!-- 🛠️ Tutoriel 14: Lodash -->
+    <div class="card">
+      <h2>Lodash</h2>
+      <p><strong>Description :</strong> Lodash est une bibliothèque JavaScript utilitaire qui facilite la manipulation des tableaux, des objets et d'autres types de données.</p>
+
+      <h3>Exemple d'utilisation :</h3>
+      <p>Inverser un tableau avec Lodash :</p>
+      <pre><code>&lt;script&gt;
+  var array = [1, 2, 3];
+  console.log(_.reverse(array)); // [3, 2, 1]
+&lt;/script&gt;
+      </code></pre>
+
+      <h3>Démo :</h3>
+      <p>Tableau inversé : <span id="lodash-result"></span></p>
+      <script>
+        var array = [1, 2, 3];
+        document.getElementById('lodash-result').innerText = _.reverse(array);
+      </script>
+    </div>
+    
+    <!-- ⚙️ Tutoriel 15: Alpine.js -->
+    <div class="card">
+      <h2>Alpine.js</h2>
+      <p><strong>Description :</strong> Alpine.js est une bibliothèque JavaScript légère pour rendre des interfaces interactives dans le style de Vue.js, mais avec une syntaxe plus simple et plus légère.</p>
+
+      <h3>Exemple d'utilisation :</h3>
+      <p>Afficher un message avec Alpine.js :</p>
+      <pre><code>&lt;div x-data="{ message: 'Hello from Alpine.js!' }"&gt;
+  &lt;p x-text="message"&gt;&lt;/p&gt;
+&lt;/div&gt;
+      </code></pre>
+
+      <h3>Démo :</h3>
+      <div x-data="{ message: 'Hello from Alpine.js!' }">
+        <p x-text="message"></p>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>

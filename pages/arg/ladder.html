@@ -78,42 +78,42 @@
     <h1>⚔️ Fusion des Univers : Pokémon, Yu-Gi-Oh!, WoW, LoL 🌟</h1>
   </header>
 
-        <!-- Contenu des cartes -->
-        <div class="grid-container mb-8">
-            <div class="carte" x-data="{ health: 85 }">
-            <h2>💪 Statut des Champions</h2>
-            <div id="championHealthChart"></div>
-            <p class="text-xl" x-text="'Santé : ' + health + '%'"></p>
+            <!-- Contenu des cartes -->
+            <div class="grid-container mb-8">
+                <div class="carte" x-data="{ health: 85 }">
+                <h2>💪 Statut des Champions</h2>
+                <div id="championHealthChart"></div>
+                <p class="text-xl" x-text="'Santé : ' + health + '%'"></p>
+                </div>
+                <div class="carte">
+                <h2>🃏 Cartes & Compétences</h2>
+                <div id="competenceChart"></div>
+                </div>
+                <div class="carte">
+                <h2>📊 Rang Ladder Contacts</h2>
+                <div id="rangeLadderChart"></div>
+                </div>
+                <div class="carte">
+                <h2>🤖 Activité de l'IA</h2>
+                <p>Surveillez les actions de l'IA en temps réel pendant les batailles.</p>
+                </div>
             </div>
-            <div class="carte">
-            <h2>🃏 Cartes & Compétences</h2>
-            <div id="competenceChart"></div>
-            </div>
-            <div class="carte">
-            <h2>📊 Rang Ladder Contacts</h2>
-            <div id="rangeLadderChart"></div>
-            </div>
-            <div class="carte">
-            <h2>🤖 Activité de l'IA</h2>
-            <p>Surveillez les actions de l'IA en temps réel pendant les batailles.</p>
-            </div>
-        </div>
 
-        <div class="grid-container bg-black text-white">
-            <div class="carte" x-data="{ health: 85 }">
-            <h2>💪 Statut des Champions</h2>
-            <div id="championHealthChart"></div>
-            <p class="text-xl" x-text="'Santé : ' + health + '%'"></p>
+            <div class="grid-container bg-black text-white">
+                <div class="carte" x-data="{ health: 85 }">
+                <h2>💪 Statut des Champions</h2>
+                <div id="championHealthChart"></div>
+                <p class="text-xl" x-text="'Santé : ' + health + '%'"></p>
+                </div>
+                <div class="carte">
+                <h2>🃏 Cartes & Compétences</h2>
+                <div id="competenceChart"></div>
+                </div>
+                <div class="carte">
+                <h2>📊 Progression de la Campagne</h2>
+                <div id="progressChart"></div>
+                </div>
             </div>
-            <div class="carte">
-            <h2>🃏 Cartes & Compétences</h2>
-            <div id="competenceChart"></div>
-            </div>
-            <div class="carte">
-            <h2>📊 Progression de la Campagne</h2>
-            <div id="progressChart"></div>
-            </div>
-        </div>
 
   <!-- Graphiques avec ApexCharts -->
   <script>

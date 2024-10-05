@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>xOS</title>
+  
+  <!-- Bibliothèques -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+  <style>
+    body { background-color: #101522; color: #fff; font-family: 'Roboto', sans-serif; margin: 0; padding: 0; }
+    .carte { background: rgba(242, 242, 242, 0.95); border-radius: 15px; padding: 20px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /**transition: transform 0.3s ease-in-out;**/ } /**.carte:hover { transform: translateY(-10px); }**/
+    .grid-container { display: grid; grid-template-columns: repeat(1, 1fr); gap: 20px; padding: 20px; }
+    @media (min-width: 768px) { .grid-container { grid-template-columns: repeat(2, 1fr); } }
+    @media (min-width: 1024px) { .grid-container { grid-template-columns: repeat(4, 1fr); } }
+    .carte h2 { color: red; }
+    .carte p { color: navy; margin-top: 10px; }
+  </style><!-- des features-->
+</head>
+<body>
+
+
+
+  <!-- Contenu ici -->
+    <div class="grid-container">
+        <div class="carte">
+            <h2>📱 APPS ET SITES WEB</h2>
+            <p>Explorez une sélection d'applications et de sites web créés avec les dernières technologies.</p>
+        </div>
+
+        <div class="carte">
+            <h2>❤️ Santé</h2>
+            <p>Surveillez les actions de l'IA en temps réel pendant les batailles.</p>
+        </div>
+        <div class="carte">
+            <h2>📊 Statistiques</h2>
+            <p>Obtenez des analyses et des données pertinentes pour suivre vos performances.</p>
+        </div>
+        <div class="carte">
+            <h2>⚙️ Paramètres</h2>
+            <p>Personnalisez les configurations et ajustez les paramètres selon vos besoins.</p>
+        </div>
+        <div class="carte">
+            <h2>🃏 Cartes & Compétences</h2>
+            <div id="competenceChart"></div>
+        </div>
+        <div class="carte">
+            <h2>📊 Contact rank</h2>
+            <div id="rangeLadderChart"></div>
+            <ol>
+                <li>Jean Dupont <a href="sms:+33123456789"><i class="fas fa-comment"></i></a> <a href="tel:+33123456789"><i class="fas fa-phone"></i></a></li>
+                <li>Marie Martin <a href="sms:+33987654321"><i class="fas fa-comment"></i></a> <a href="tel:+33987654321"><i class="fas fa-phone"></i></a></li>
+                <li>Paul Durand <a href="sms:+33123459876"><i class="fas fa-comment"></i></a> <a href="tel:+33123459876"><i class="fas fa-phone"></i></a></li>
+            </ol>
+            <a href="https://contacts.google.com/?hl=fr&tab=rC" target="_blank" style="text-decoration:none; color:white; background-color:#4285F4; padding:5px; border-radius:5px; margin-top:15px;">Accéder à Google Contacts</a>
+            <p>Accédez à vos contacts et gérez vos relations facilement.</p>
+        </div>
+        <div class="carte">
+            <h2>👤 Développement personnel</h2>
+        </div>
+        <div class="carte">
+            <h2>Argent</h2>
+        </div>
+    </div>
+
+
+    <!-- Graphiques (avec ApexCharts) -->
+    <script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const createChart = (selector, options) => new ApexCharts(document.querySelector(selector), options).render();
+
+        // Graphique des Compétences
+        createChart("#competenceChart", {
+        chart: { type: 'line', height: 350 },
+        series: [{ name: 'Compétence débloquée', data: [5, 15, 25, 35, 55, 65, 75, 85, 95, 100] }],
+        xaxis: { categories: ['Niv 1', 'Niv 2', 'Niv 3', 'Niv 4', 'Niv 5', 'Niv 6', 'Niv 7', 'Niv 8', 'Niv 9', 'Niv 10'] },
+        colors: ['#FF4560']
+        });
+
+        // Graphique de Ranking, pour les Contacts
+        createChart("#rangeLadderChart", {
+            chart: { type: 'bar', height: 350 },
+            series: [{ name: 'Contacts', data: [50, 35, 10, 4, 0.5, 0.1] }],
+            xaxis: { categories: ['Non classé', 'Combattant', 'Rival', 'Duelliste', 'Gladiateur', 'Elite Gladiateur'] },
+            colors: ['#775DD0']
+        });
+
+    });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services Publics - SmartEquipage</title>
+
+    <!-- 🔗 1. Liens vers CSS et Frameworks -->
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome pour les icônes -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <!-- DataTables CSS pour la gestion des tables -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
+
+    <!-- 🛠️ 2. Liens vers JavaScript et librairies -->
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- DataTables JS -->
+    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+    <!-- ApexCharts pour les graphiques -->
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+
+    <!-- 🎨 3. Styles personnalisés -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        .fas {
+            color: #FFD700;
+        }
+
+        .contact-icons a {
+            color: #4CAF50;
+            margin: 0 10px;
+            font-size: 1.5em;
+            text-decoration: none;
+        }
+
+        .hero-section {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .hero-card {
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+            width: 48%;
+        }
+
+        @media (max-width: 768px) {
+            .hero-card {
+                width: 100%;
+            }
+        }
+
+        .contact-icons {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- 📋 Chapitre 1 : Titre principal -->
+    <div class="container">
+        <h1>Services Publics - Analyse et Gestion</h1>
+
+        <!-- 📍 Chapitre 2 : Section des Sites et Carte -->
+        <div class="row mb-4">
+            <!-- Liste des Sites -->
+            <div class="col-lg-6 col-md-12 mb-3">
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <h2 class="card-title">Liste des Sites</h2>
+                        <table id="sites-table" class="table table-bordered">
+                            <thead class="table-success">
+                                <tr>
+                                    <th>N°</th>
+                                    <th>Nom du Site</th>
+                                    <th>Fréquence d'entretien</th>
+                                    <th>Catégorie</th>
+                                    <th>Groupe</th> <!-- Ajout de la colonne Groupe -->
+                                    <th>Semaine</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Groupe 1 : Parcs et Jardins -->
+                                <tr class="table-info">
+                                    <td colspan="6" class="text-center"><strong>Parcs et Jardins</strong></td>
+                                </tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td>Place de la République</td>
+                                    <td>Hebdomadaire</td>
+                                    <td>Jardinage</td>
+                                    <td>Parcs et Jardins</td>
+                                    <td>1</td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>Square des Lilas</td>
+                                    <td>Bi-mensuel</td>
+                                    <td>Arrosage</td>
+                                    <td>Parcs et Jardins</td>
+                                    <td>2</td>
+                                </tr>
+                                <!-- Groupe 2 : Giratoires -->
+                                <tr class="table-info">
+                                    <td colspan="6" class="text-center"><strong>Giratoires</strong></td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>Giratoire du Stade</td>
+                                    <td>Mensuel</td>
+                                    <td>Nettoyage</td>
+                                    <td>Giratoires</td>
+                                    <td>3</td>
+                                </tr>
+                                <!-- Groupe 3 : Écoles et Crèches -->
+                                <tr class="table-info">
+                                    <td colspan="6" class="text-center"><strong>Écoles et Crèches</strong></td>
+                                </tr>
+                                <tr>
+                                    <td>4</td>
+                                    <td>École des Petits Champs</td>
+                                    <td>Trimestriel</td>
+                                    <td>Réparation</td>
+                                    <td>Écoles et Crèches</td>
+                                    <td>4</td>
+                                </tr>
+                                <tr>
+                                    <td>5</td>
+                                    <td>Crèche du Soleil</td>
+                                    <td>Annuel</td>
+                                    <td>Jardinage</td>
+                                    <td>Écoles et Crèches</td>
+                                    <td>5</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Carte des Sites -->
+            <div class="col-lg-6 col-md-12 mb-3">
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <h2 class="card-title">Carte des Sites</h2>
+                        <div class="ratio ratio-16x9">
+                            <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1X3tqLrz7lfqvgDEShX8CNL1fLMBw-_0&ehbc=2E312F" style="border:0;" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 📊 Chapitre 3 : Tableau des Performances des Jardiniers -->
+        <div class="table-responsive">
+            <table id="performance-table" class="table table-striped table-bordered">
+                <thead class="table-success">
+                    <tr>
+                        <th>Nom</th>
+                        <th>Date de naissance</th>
+                        <th>Date de début de contrat</th>
+                        <th>Échelon</th>
+                        <th>Zones entretenues</th>
+                        <th>Taux de réussite</th>
+                        <th>Note</th>
+                        <th>Graphique</th>
+                        <th>Contact</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Rasta</td>
+                        <td>12/05/1980</td>
+                        <td>01/02/2015</td>
+                        <td>4</td>
+                        <td>6</td>
+                        <td>95%</td>
+                        <td data-note="5"><i class="fas fa-star"></i> <i class="fas fa-star"></i> <i class="fas fa-star"></i> <i class="fas fa-star"></i> <i class="fas fa-star"></i></td>
+                        <td>
+                            <div id="chart-rasta"></div>
+                        </td>
+                        <td class="contact-icons">
+                            <a href="tel:+123456789"><i class="fas fa-phone"></i></a>
+                            <a href="sms:+123456789"><i class="fas fa-sms"></i></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Iris</td>
+                        <td>15/07/1985</td>
+                        <td>01/03/2016</td>
+                        <td>3</td>
+                        <td>5</td>
+                        <td>90%</td>
+                        <td data-note="4.5"><i class="fas fa-star"></i> <i class="fas fa-star"></i> <i class="fas fa-star"></i> <i class="fas fa-star"></i> <i class="fas fa-star-half-alt"></i></td>
+                        <td>
+                            <div id="chart-iris"></div>
+                        </td>
+                        <td class="contact-icons">
+                            <a href="tel:+123456789"><i class="fas fa-phone"></i></a>
+                            <a href="sms:+123456789"><i class="fas fa-sms"></i></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Patrick</td>
+                        <td>23/03/1990</td>
+                        <td>15/04/2018</td>
+                        <td>2</td>
+                        <td>4</td>
+                        <td>85%</td>
+                        <td data-note="4"><i class="fas fa-star"></i> <i class="fas fa-star"></i> <i class="fas fa-star"></i> <i class="fas fa-star"></i></td>
+                        <td>
+                            <div id="chart-patrick"></div>
+                        </td>
+                        <td class="contact-icons">
+                            <a href="tel:+123456789"><i class="fas fa-phone"></i></a>
+                            <a href="sms:+123456789"><i class="fas fa-sms"></i></a>
+                        </td>
+                    </tr>
+                    <!-- Autres jardiniers peuvent être ajoutés ici -->
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
+    <!-- 📊 Chapitre 4 : Scripts pour les tableaux et graphiques -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Initialisation de DataTables pour les tableaux
+        $(document).ready(function () {
+            $('#performance-table').DataTable();
+        });
+
+        // Configuration des graphiques ApexCharts
+        var optionsRasta = {
+            chart: {
+                type: 'radialBar',
+                height: 150
+            },
+            series: [95],
+            labels: ['Rasta'],
+            colors: ['#4CAF50']
+        };
+        var chartRasta = new ApexCharts(document.querySelector("#chart-rasta"), optionsRasta);
+        chartRasta.render();
+
+        var optionsIris = {
+            chart: {
+                type: 'radialBar',
+                height: 150
+            },
+            series: [90],
+            labels: ['Iris'],
+            colors: ['#4CAF50']
+        };
+        var chartIris = new ApexCharts(document.querySelector("#chart-iris"), optionsIris);
+        chartIris.render();
+
+        var optionsPatrick = {
+            chart: {
+                type: 'radialBar',
+                height: 150
+            },
+            series: [85],
+            labels: ['Patrick'],
+            colors: ['#4CAF50']
+        };
+        var chartPatrick = new ApexCharts(document.querySelector("#chart-patrick"), optionsPatrick);
+        chartPatrick.render();
+    </script>
+
+</body>
+
+</html>

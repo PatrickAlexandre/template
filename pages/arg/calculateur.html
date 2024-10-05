@@ -1,67 +1,187 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculateur de Santé</title>
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-    <script defer src="script.js"></script>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fusion : Pokémon, Yu-Gi-Oh!, WoW, LoL</title>
+  
+  <!-- Importation des ressources -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+  <style>
+    body {
+      background-color: #121212; /* Couleur plus douce pour réduire la fatigue visuelle */
+      color: #F5F5F5; /* Texte clair pour un bon contraste */
+      font-family: 'Roboto', sans-serif;
+      transition: background-color 0.3s ease;
+    }
+
+    .carte {
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+      border-radius: 15px;
+      padding: 20px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    }
+
+    .carte:hover { 
+      transform: translateY(-10px); 
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4); 
+    }
+
+    .header {
+      text-align: center;
+      padding: 20px;
+    }
+
+    .header h1 {
+      font-size: 2.5rem; 
+      font-weight: bold; 
+      color: #FFEB3B; 
+      letter-spacing: 0.1em;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+
+    .icon {
+      margin-top: 10px;
+      font-size: 3rem;
+    }
+
+    .grid-container {
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      gap: 20px;
+      padding: 20px;
+    }
+
+    @media (min-width: 768px) {
+      .grid-container { 
+        grid-template-columns: repeat(2, 1fr); 
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .grid-container { 
+        grid-template-columns: repeat(4, 1fr); 
+      }
+    }
+
+    h2 { 
+      font-size: 1.75rem; 
+      color: #00D1FF; 
+      text-shadow: 0 2px 8px rgba(0, 150, 255, 0.7);
+    }
+
+    p {
+      font-size: 1.125rem;
+      color: #E0E0E0;
+    }
+
+    .text-accent {
+      color: #00E396;
+    }
+
+    .bg-accent {
+      background-color: #FF4560;
+    }
+  </style>
 </head>
-<body class="bg-gray-100">
+<body>
+  <!-- En-tête -->
+  <header class="header">
+    <h1>⚔️ Fusion des Univers : Pokémon, Yu-Gi-Oh!, WoW, LoL 🌟</h1>
+    <div id="osIcon" class="icon"></div> <!-- Icône du système d'exploitation ici -->
+  </header>
 
-    <div class="container mx-auto p-6">
-        <div class="bg-white shadow-md rounded p-6">
-            <h1 class="text-2xl font-bold mb-6 text-center">Calculateur de Santé</h1>
-            
-            <div class="mb-4">
-                <label class="block text-gray-700 text-sm font-bold mb-2" for="poids">Poids (kg)</label>
-                <input id="poids" type="number" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Entrez votre poids">
-            </div>
-
-            <div class="mb-4">
-                <label class="block text-gray-700 text-sm font-bold mb-2" for="taille">Taille (cm)</label>
-                <input id="taille" type="number" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Entrez votre taille">
-            </div>
-
-            <div class="mb-4">
-                <label class="block text-gray-700 text-sm font-bold mb-2" for="age">Âge</label>
-                <input id="age" type="number" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Entrez votre âge">
-            </div>
-
-            <button id="calculer" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full"> 
-                <i class="fas fa-calculator"></i> Calculer IMC & BMR
-            </button>
-
-            <div id="resultat" class="mt-6 p-4 bg-green-100 rounded hidden">
-                <h2 class="text-xl font-bold">Résultats :</h2>
-                <p class="mt-2" id="imc">IMC : </p>
-                <p id="bmr">Métabolisme de base (BMR) : </p>
-            </div>
-        </div>
+  <!-- Contenu des cartes -->
+  <div class="grid-container mb-8">
+    <div class="carte" x-data="{ health: 85 }">
+      <h2>💪 Statut des Champions</h2>
+      <div id="championHealthChart"></div>
+      <p class="text-xl" x-text="'Santé : ' + health + '%'"></p>
     </div>
+    <div class="carte">
+      <h2>🃏 Cartes & Compétences</h2>
+      <div id="competenceChart"></div>
+    </div>
+    <div class="carte">
+      <h2>📊 Rang Ladder Contacts</h2>
+      <div id="rangeLadderChart"></div>
+    </div>
+    <div class="carte">
+      <h2>🤖 Activité de l'IA</h2>
+      <p>Surveillez les actions de l'IA en temps réel pendant les batailles.</p>
+    </div>
+  </div>
 
-    <script>
-        document.getElementById("calculer").addEventListener("click", function () {
-            let poids = document.getElementById("poids").value;
-            let taille = document.getElementById("taille").value / 100;  // Convert cm to meters
-            let age = document.getElementById("age").value;
+  <div class="grid-container bg-black text-white">
+    <div class="carte" x-data="{ health: 85 }">
+      <h2>💪 Statut des Champions</h2>
+      <div id="championHealthChart"></div>
+      <p class="text-xl" x-text="'Santé : ' + health + '%'"></p>
+    </div>
+    <div class="carte">
+      <h2>🃏 Cartes & Compétences</h2>
+      <div id="competenceChart"></div>
+    </div>
+    <div class="carte">
+      <h2>📊 Progression de la Campagne</h2>
+      <div id="progressChart"></div>
+    </div>
+  </div>
 
-            if (poids && taille && age) {
-                // Calcul de l'IMC
-                let imc = (poids / (taille * taille)).toFixed(2);
+  <!-- Script pour détecter l'OS et afficher l'icône -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const osIconDiv = document.getElementById('osIcon');
 
-                // Calcul du BMR (Formule de Harris-Benedict, exemple pour un homme)
-                let bmr = (88.362 + (13.397 * poids) + (4.799 * (taille * 100)) - (5.677 * age)).toFixed(2);
+      // Détection du système d'exploitation
+      const userAgent = window.navigator.userAgent.toLowerCase();
+      let osIcon = '';
 
-                // Afficher les résultats
-                document.getElementById("imc").innerText = "IMC : " + imc;
-                document.getElementById("bmr").innerText = "BMR : " + bmr + " calories par jour";
-                document.getElementById("resultat").classList.remove("hidden");
-            } else {
-                alert("Veuillez remplir tous les champs.");
-            }
-        });
-    </script>
+      if (userAgent.includes('iphone') || userAgent.includes('ipad') || userAgent.includes('mac')) {
+        osIcon = 'Raccourcis iOS 🍏 : '; // Icône Apple
+      } else if (userAgent.includes('android')) {
+        osIcon = '🤖'; // Icône Android
+      } else if (userAgent.includes('windows')) {
+        osIcon = '.bat : '; // Icône Windows
+      }
+
+      // Afficher l'icône dans le header
+      osIconDiv.textContent = osIcon;
+    });
+  </script>
+
+  <!-- Graphiques avec ApexCharts -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const createChart = (selector, options) => new ApexCharts(document.querySelector(selector), options).render();
+
+      // Graphique de Santé des Champions
+      createChart("#championHealthChart", {
+        chart: { type: 'radialBar', height: 350 },
+        series: [85], labels: ['Santé'], colors: ['#00E396']
+      });
+
+      // Graphique des Compétences
+      createChart("#competenceChart", {
+        chart: { type: 'line', height: 350 },
+        series: [{ name: 'Compétence débloquée', data: [5, 15, 25, 35, 55, 65, 75, 85, 95, 100] }],
+        xaxis: { categories: ['Niv 1', 'Niv 2', 'Niv 3', 'Niv 4', 'Niv 5', 'Niv 6', 'Niv 7', 'Niv 8', 'Niv 9', 'Niv 10'] },
+        colors: ['#FF4560']
+      });
+
+      // Graphique de Range Ladder Contacts
+      createChart("#rangeLadderChart", {
+        chart: { type: 'bar', height: 350 },
+        series: [{ name: 'Contacts', data: [50, 35, 10, 4, 0.5, 0.1] }],
+        xaxis: { categories: ['Non classé', 'Combattant', 'Rival', 'Duelliste', 'Gladiateur', 'Elite Gladiateur'] },
+        colors: ['#775DD0']
+      });
+    });
+  </script>
+
 </body>
 </html>

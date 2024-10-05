@@ -1,0 +1,74 @@
+{
+  "Parcs_et_Jardins": {
+    "couleur": "#4CAF50",
+    "sites": [
+      "Parc Youri Gagarine",
+      "Parc Genevoix",
+      "Parc Léo Lagrange",
+      "Parc de la Fête",
+      "Parc des 4 chemins et sa noue paysagère",
+      "Square Linné",
+      "Square Raoul Dufy",
+      "Place Alexandre Dumas",
+      "Place Stendhal",
+      "PMG Ouest",
+      "PMG Est",
+      "Place Darwin",
+      "Grand V",
+      "Parc des Indes + esplanade G. Brassens"
+    ]
+  },
+  "Giratoires": {
+    "couleur": "#FF9800",
+    "sites": [
+      "Rond-point Grétry",
+      "Rond-point Saint Exupéry / G. Clemenceau",
+      "Rond-point de Cormeilles",
+      "Rond-point Maupassant",
+      "Rond-point Timbaud"
+    ]
+  },
+  "Accompagnements_de_Voirie": {
+    "couleur": "#2196F3",
+    "sites": [
+      "Rue Guy de Maupassant",
+      "Gare routière Guy de Maupassant",
+      "Rue Dumas",
+      "Angle rue P. Brossolette / rue Barian",
+      "Zone industrielle",
+      "Rue Florian + rue Lakanal",
+      "Rue de Tunis",
+      "Angle rue Roger Hugues / rue Baudelaire",
+      "Rue des acacias",
+      "Angle rue Condorcet / G. Clemenceau + angle rue Verlaine / G. Clemenceau",
+      "Angle Clemenceau / avenue Val Notre-Dame",
+      "Rue des clos (borne à incendie)",
+      "Rue Calmette - Guérin",
+      "Route de Pontoise",
+      "Rue du clos (face KFC) entretien externalisé",
+      "Angle rue Bourquelot / rue Paul Bert",
+      "Avenue Rochefort",
+      "Rue F. Villon",
+      "Quartier des 4 chemins (à planifier en hiver)"
+    ]
+  },
+  "Equipements_Publics": {
+    "couleur": "#9C27B0",
+    "sites": [
+      "Théâtre F. Brel",
+      "Mairie Annexe",
+      "Bibliothèque Stendhal",
+      "Marcel Cerdan",
+      "Tennis Youri Gagarine"
+    ]
+  },
+  "Creches_Centres_de_Loisirs_Ecoles": {
+    "couleur": "#FFC107",
+    "sites": [
+      "Crèche Croque la vie (mardi matin)",
+      "Halte-garderie Dansons la capucine (mardi matin)",
+      "Centre J. Auriol (hors mercredi et congés scolaires)",
+      "Centre Charles Péguy"
+    ]
+  }
+}
